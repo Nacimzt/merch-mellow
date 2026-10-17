@@ -1312,6 +1312,12 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
   .cta-fb .fb-mail{display:none}
 }
 @media (max-width:380px){.cta-fb .fb-q{display:none}}
+/* Hero : le portant suit le contenu au lieu d'être posé dessus (écrans peu hauts) */
+@media (min-width:821px){
+  .hero .card{display:flex;flex-direction:column;align-items:center}
+  .hero .card .rail{position:relative!important;left:auto;right:auto;bottom:auto;height:auto!important;flex:1 1 auto;min-height:clamp(220px,34vh,440px)!important;margin-top:clamp(24px,4vh,48px);width:calc(100% + 48px)!important;margin-left:-24px;margin-right:-24px}
+  .hero .card .rail img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0}
+}
 </style>
 </head>
 <body>
