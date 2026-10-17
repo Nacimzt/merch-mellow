@@ -1237,7 +1237,36 @@ html,body{background:var(--ink-bg)}
 .cta-fb{color:var(--cr-3)!important}
 .cta-fb a{color:var(--cr)!important;text-decoration-color:rgba(246,241,233,.35)!important}
 .cta-fb a:hover{text-decoration-color:var(--cr)!important}
-@media (max-width:820px),(hover:none){.cta-card .cta-cal iframe{width:100%!important;margin-left:0!important}}
+@media (hover:none){.cta-card .cta-cal iframe{width:100%!important;margin-left:0!important}}
+/* =========================================================
+   MOBILE (2026-10-17) : cibles tactiles de 44 px, titre final, confort
+   ========================================================= */
+a,button,summary{-webkit-tap-highlight-color:transparent}
+@media (max-width:820px){
+  .nav{padding-top:env(safe-area-inset-top)}
+  .nav .cta-nav{height:44px!important}
+  .nav .burger{width:44px;height:44px}
+  .nav{gap:10px!important}
+  .nav .cta-nav{margin-right:0!important}
+  .logo{min-height:44px}
+  /* pied de page : chaque lien devient une ligne de 44 px */
+  .foot-cols ul{gap:0!important}
+  .foot-cols li a,.foot-cols li span{display:flex;align-items:center;min-height:44px}
+  .foot-cols h4{margin-bottom:4px!important}
+  .foot-bottom ul{gap:0 20px!important;flex-wrap:wrap}
+  .foot-bottom a{display:inline-flex;align-items:center;min-height:44px}
+  /* liens dans le texte : zone de toucher agrandie sans bouger la mise en page */
+  .faq-more a,.cta-fb a{display:inline-block;padding:10px 0;margin:-10px 0}
+  /* appel final : titre sur trois lignes équilibrées */
+  .cta .cta-l h2{font-size:clamp(30px,8.6vw,36px)!important;line-height:1.06!important}
+  .cta .cta-l h2 br{display:none!important}
+  .cta .cta-l h2{text-wrap:balance!important}
+  .cta-card{padding:8px 8px 14px!important}
+  .cta-fb{padding:0 12px}
+}
+@media (max-width:380px){
+  .cta .cta-l h2{font-size:30px!important}
+}
 </style>
 </head>
 <body>
@@ -1781,7 +1810,7 @@ fill="#16130f" stroke="none"><g class="ico"><path d="M3238 5754 c-4 -4 -74 -11 -
 <section class="cta" id="devis" aria-labelledby="cta-title">
   <div class="cta-in cta-split">
     <div class="cta-l">
-      <h2 id="cta-title">Prêt à créer le merch<br><em>que votre équipe gardera&nbsp;?</em></h2>
+      <h2 id="cta-title">Prêt à créer le merch <br><em>que votre équipe gardera&nbsp;?</em></h2>
       <p class="lead">Parlez-nous de votre projet. Nous vous aidons à concevoir des pièces adaptées à votre marque, de la première idée à la livraison.</p>
       <ol class="cta-steps">
         <li><span><b>Votre projet</b>Votre équipe, vos objectifs, les pièces envisagées.</span></li>
