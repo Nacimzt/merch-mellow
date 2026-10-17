@@ -1267,6 +1267,27 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 @media (max-width:380px){
   .cta .cta-l h2{font-size:30px!important}
 }
+/* =========================================================
+   Comment ça marche sur mobile : ligne de progression verticale,
+   texte d'abord, visuel recadré et lisible ensuite
+   ========================================================= */
+.st-pic picture{display:block;width:100%;height:100%}
+@media (max-width:820px){
+  .procard .steps{position:relative;display:flex!important;flex-direction:column;gap:52px!important;padding-left:30px!important}
+  .procard .steps::before{content:"";position:absolute;left:6px;top:10px;bottom:10px;width:1px;background:rgba(22,19,15,.16)}
+  .procard .st{display:flex!important;flex-direction:column;gap:18px!important;position:relative}
+  .procard .st::before{content:"";position:absolute;left:-30px;top:4px;width:13px;height:13px;border-radius:50%;background:#F26B2A;box-shadow:0 0 0 6px var(--card)}
+  .procard .st-tx{order:-1;gap:8px!important;max-width:none!important;padding:0!important}
+  .procard .st-chip{height:auto!important;padding:0!important;border:0!important;background:none!important;font-size:12.5px!important;font-weight:500!important;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)!important;gap:0!important}
+  .procard .st-chip i{display:none!important}
+  .procard .st-tx h3{margin-top:0!important;font-size:22px!important}
+  .procard .st-tx p{font-size:16px!important}
+  .procard .st-pic{aspect-ratio:4/3!important;border-radius:16px!important}
+  .procard .st-pic img{width:100%;height:100%;object-fit:cover}
+  .procard .pr-cta{margin-top:8px}
+  .procard .pr-lead{text-wrap:balance;max-width:28ch!important;margin-left:auto;margin-right:auto}
+  .procard .pr-cta .btn{width:100%;justify-content:space-between}
+}
 </style>
 </head>
 <body>
@@ -1731,7 +1752,7 @@ fill="#16130f" stroke="none"><g class="ico"><path d="M3238 5754 c-4 -4 -74 -11 -
     </div>
     <ol class="steps" id="stepslist">
       <li class="st">
-        <div class="st-pic"><img decoding="async" src="assets/opt/etape-brief-v2-1000.webp" srcset="assets/opt/etape-brief-v2-1000.webp 1000w, assets/opt/etape-brief-v2-1800.webp 1800w" sizes="(max-width:820px) 100vw, 52vw" width="3000" height="1800" alt="Illustration : formulaire de brief créatif, pièces cochées et quantité" loading="lazy"></div>
+        <div class="st-pic"><picture><source media="(max-width:820px)" srcset="assets/opt/etape-brief-mobile.webp" width="1200" height="900"><img decoding="async" src="assets/opt/etape-brief-v2-1000.webp" srcset="assets/opt/etape-brief-v2-1000.webp 1000w, assets/opt/etape-brief-v2-1800.webp 1800w" sizes="(max-width:820px) 100vw, 52vw" width="3000" height="1800" alt="Illustration : formulaire de brief créatif, pièces cochées et quantité" loading="lazy"></picture></div>
         <div class="st-tx">
           <span class="st-chip"><i></i>Étape 1</span>
           <h3>Brief créatif</h3>
@@ -1739,7 +1760,7 @@ fill="#16130f" stroke="none"><g class="ico"><path d="M3238 5754 c-4 -4 -74 -11 -
         </div>
       </li>
       <li class="st">
-        <div class="st-pic"><img decoding="async" src="assets/opt/etape-echantillons-v2-1000.webp" srcset="assets/opt/etape-echantillons-v2-1000.webp 1000w, assets/opt/etape-echantillons-v2-1800.webp 1800w" sizes="(max-width:820px) 100vw, 52vw" width="3000" height="1800" alt="Illustration : échantillon validé, photo du t-shirt et coloris" loading="lazy"></div>
+        <div class="st-pic"><picture><source media="(max-width:820px)" srcset="assets/opt/etape-echantillons-mobile.webp" width="1200" height="900"><img decoding="async" src="assets/opt/etape-echantillons-v2-1000.webp" srcset="assets/opt/etape-echantillons-v2-1000.webp 1000w, assets/opt/etape-echantillons-v2-1800.webp 1800w" sizes="(max-width:820px) 100vw, 52vw" width="3000" height="1800" alt="Illustration : échantillon validé, photo du t-shirt et coloris" loading="lazy"></picture></div>
         <div class="st-tx">
           <span class="st-chip"><i></i>Étape 2</span>
           <h3>Design &amp; échantillons</h3>
@@ -1747,7 +1768,7 @@ fill="#16130f" stroke="none"><g class="ico"><path d="M3238 5754 c-4 -4 -74 -11 -
         </div>
       </li>
       <li class="st">
-        <div class="st-pic"><img decoding="async" src="assets/opt/etape-production-v2-1000.webp" srcset="assets/opt/etape-production-v2-1000.webp 1000w, assets/opt/etape-production-v2-1800.webp 1800w" sizes="(max-width:820px) 100vw, 52vw" width="3000" height="1800" alt="Illustration : suivi de production, étapes atelier, broderie, contrôle, expédition" loading="lazy"></div>
+        <div class="st-pic"><picture><source media="(max-width:820px)" srcset="assets/opt/etape-production-mobile.webp" width="1200" height="900"><img decoding="async" src="assets/opt/etape-production-v2-1000.webp" srcset="assets/opt/etape-production-v2-1000.webp 1000w, assets/opt/etape-production-v2-1800.webp 1800w" sizes="(max-width:820px) 100vw, 52vw" width="3000" height="1800" alt="Illustration : suivi de production, étapes atelier, broderie, contrôle, expédition" loading="lazy"></picture></div>
         <div class="st-tx">
           <span class="st-chip"><i></i>Étape 3</span>
           <h3>Production &amp; contrôle qualité</h3>
@@ -1755,7 +1776,7 @@ fill="#16130f" stroke="none"><g class="ico"><path d="M3238 5754 c-4 -4 -74 -11 -
         </div>
       </li>
       <li class="st">
-        <div class="st-pic"><img decoding="async" src="assets/opt/etape-livraison-v2-1000.webp" srcset="assets/opt/etape-livraison-v2-1000.webp 1000w, assets/opt/etape-livraison-v2-1800.webp 1800w" sizes="(max-width:820px) 100vw, 52vw" width="3000" height="1800" alt="Illustration : livraison confirmée et prochaine commande" loading="lazy"></div>
+        <div class="st-pic"><picture><source media="(max-width:820px)" srcset="assets/opt/etape-livraison-mobile.webp" width="1200" height="900"><img decoding="async" src="assets/opt/etape-livraison-v2-1000.webp" srcset="assets/opt/etape-livraison-v2-1000.webp 1000w, assets/opt/etape-livraison-v2-1800.webp 1800w" sizes="(max-width:820px) 100vw, 52vw" width="3000" height="1800" alt="Illustration : livraison confirmée et prochaine commande" loading="lazy"></picture></div>
         <div class="st-tx">
           <span class="st-chip"><i></i>Étape 4</span>
           <h3>Livraison &amp; suivi</h3>
