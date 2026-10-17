@@ -1163,6 +1163,72 @@ html.mm-rv .procard .st.is-in .st-pic{opacity:1;transform:none}
 }
 /* Appel final : titre du point sur sa ligne, description dessous */
 .cta-steps b{display:block;margin-bottom:3px}
+/* =========================================================
+   COHÉRENCE GLOBALE (2026-10-17) — charte Merch Mellow
+   Encre #16130F · Crème #F6F1E9 (jamais de blanc pur) · Orange #F26B2A
+   Gris chauds seulement : #6F675E (texte secondaire) · #9A948C (repères)
+   Sur fond sombre : crème, crème 72 %, crème 48 %
+   ========================================================= */
+:root{
+  --ink-bg:#16130F;--card:#F6F1E9;--nav-fg:#F6F1E9;--btn-fg:#F6F1E9;
+  --cr:#F6F1E9;--cr-2:rgba(246,241,233,.72);--cr-3:rgba(246,241,233,.48);
+  --line-l:rgba(22,19,15,.12);--line-d:rgba(246,241,233,.14);
+  --r-in:20px;
+}
+html,body{background:var(--ink-bg)}
+/* Surfaces claires : toutes en crème */
+.hero .card,.why,.flow>section.procard,.cta-card{background:var(--card)!important}
+.hero .rail,.procard .st-pic{mix-blend-mode:multiply}
+.procard .st-pic,.st:hover .st-pic{background:transparent!important}
+.why-photo{background:#ECE6DC}
+.st-chip{background:transparent!important;border-color:rgba(22,19,15,.14)!important;color:var(--ink)!important}
+.mb{background:#1F1B16}
+/* Boutons : encre sur crème, crème sur encre */
+.btn{color:var(--btn-fg)}
+.nav .cta-nav{background:var(--cr)!important;color:var(--ink)!important}
+/* Textes sur fond sombre : crème, jamais blanc */
+.nav .menu a{color:var(--cr)}
+.logo .ico,.logo .word{fill:var(--cr)!important}
+.mo h2,.mb h3,.faq h2{color:var(--cr)!important}
+.mb p{color:var(--cr-2)!important}
+.mb-img:hover p{color:var(--cr)!important}
+.q summary,.q summary:hover,.q[open] summary{color:var(--cr)!important}
+.q summary i::before,.q summary i::after{background:var(--cr)!important}
+.q .a p,.faq-more{color:var(--cr-2)!important}
+.faq-more a{color:var(--cr)!important}
+.foot-brand p{color:var(--cr-2)!important}
+.foot-cols h4,.foot-cols span,.foot-bottom,.foot-bottom a{color:var(--cr-3)!important}
+.foot-cols a{color:var(--cr-2)!important}
+.foot-cols a:hover,.foot-bottom a:hover{color:var(--cr)!important;opacity:1!important}
+.cta .cta-l h2{color:var(--cr)!important}
+.cta .cta-l h2 em,.cta .cta-l .lead,.cta-steps li,.cta-host-s{color:var(--cr-2)!important}
+.cta-steps li::before{color:var(--cr-3)!important}
+.cta-steps b,.cta-host-n{color:var(--cr)!important}
+.cta-steps,.cta-steps li{border-color:rgba(246,241,233,.22)!important}
+.about .say{color:var(--cr)!important}
+.btn-arr,.procard .btn-arr{background:rgba(246,241,233,.16)!important}
+.cmp-x{background:#ECE6DC!important}
+/* Filets : un seul gris par fond */
+.why-points li,.cmp-col li,.cmp-col ul,.st-tx{border-color:var(--line-l)!important}
+.q,.foot-top,.faq-list{border-color:var(--line-d)!important}
+/* Échelle typographique : une taille par rôle */
+.diff h2,.mo h2,.faq h2,.procard .pr-head h2{font-size:clamp(36px,3.9vw,56px)!important;line-height:1.03!important;letter-spacing:-.03em!important}
+.cta .cta-l h2{font-size:clamp(34px,3.3vw,48px)!important}
+.cmp-col h3,.procard .st-tx h3,.mb h3{font-size:clamp(20px,1.65vw,24px)!important;line-height:1.2!important}
+.diff-lead,.procard .pr-lead,.cta .cta-l .lead{font-size:clamp(16.5px,1.25vw,18px)!important;line-height:1.55!important}
+.mb p,.procard .st-tx p,.q .a p,.cta-steps li{font-size:16px!important;line-height:1.6!important}
+.cta-steps b{font-size:17px}
+.why-points li{font-size:16px!important}
+.cta-host-s,.cta-fb{font-size:14px!important}
+/* Rayons : 32 px pour les grandes cartes, 20 px à l'intérieur */
+.why-photo,.mb,.procard .st-pic{border-radius:var(--r-in)!important}
+.cta-card{border-radius:24px}
+@media (max-width:820px){
+  .diff h2,.mo h2,.faq h2,.procard .pr-head h2{font-size:clamp(30px,8.4vw,36px)!important}
+  .cta .cta-l h2{font-size:clamp(32px,9vw,40px)!important}
+  .why-photo,.mb,.procard .st-pic{border-radius:16px!important}
+  .cta-card{border-radius:20px}
+}
 </style>
 </head>
 <body>
@@ -1732,7 +1798,7 @@ fill="#16130f" stroke="none"><g class="ico"><path d="M3238 5754 c-4 -4 -74 -11 -
   <div class="foot-in">
     <div class="foot-top">
       <div class="foot-brand">
-        <a href="#" aria-label="Merch Mellow, accueil"><img src="assets/logo-white.svg" alt="Merch Mellow" width="180" height="54"></a>
+        <a href="#" aria-label="Merch Mellow, accueil"><img src="assets/logo-cream.svg" alt="Merch Mellow" width="180" height="54"></a>
         <p>Le merch que vos équipes veulent porter. Conçu à Paris, produit avec des ateliers choisis.</p>
       </div>
       <nav class="foot-cols" aria-label="Pied de page">
@@ -1803,7 +1869,7 @@ fill="#16130f" stroke="none"><g class="ico"><path d="M3238 5754 c-4 -4 -74 -11 -
       });
     };
     wrap(say,'ink');
-    const FAINT=[92,92,90], TONES={ink:[255,255,255], g:[140,140,138], o:[242,107,42]};
+    const FAINT=[92,92,90], TONES={ink:[246,241,233], g:[140,140,138], o:[242,107,42]};
     const mix=(a,b,t)=>`rgb(${a.map((v,i)=>Math.round(v+(b[i]-v)*t)).join(',')})`;
     const clamp=v=>Math.max(0,Math.min(1,v));
     // révélation des blocs : un seul observateur, un seul seuil
@@ -1926,7 +1992,7 @@ fill="#16130f" stroke="none"><g class="ico"><path d="M3238 5754 c-4 -4 -74 -11 -
     config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"},
     calLink: "merchmellow/rendez-vous-decouverte",
   });
-  Cal.ns["rendez-vous-decouverte"]("ui", {"hideEventTypeDetails":true,"layout":"month_view","theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#16130F"}}});
+  Cal.ns["rendez-vous-decouverte"]("ui", {"hideEventTypeDetails":true,"layout":"month_view","theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#16130F","cal-bg":"#F6F1E9","cal-bg-muted":"#EFE8DD","cal-bg-subtle":"#EFE8DD","cal-bg-emphasis":"#E6DDCF","cal-border":"#E0D7C8","cal-border-subtle":"#E7DFD3","cal-border-booker":"#E0D7C8","cal-text":"#16130F","cal-text-emphasis":"#16130F","cal-text-subtle":"#6F675E","cal-text-muted":"#9A948C"}}});
 </script>
 </body>
 </html>
