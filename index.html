@@ -1318,6 +1318,8 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
   .hero .card .rail{position:relative!important;left:auto;right:auto;bottom:auto;height:auto!important;flex:1 1 auto;min-height:clamp(220px,34vh,440px)!important;margin-top:clamp(24px,4vh,48px);width:calc(100% + 48px)!important;margin-left:-24px;margin-right:-24px}
   .hero .card .rail img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0}
 }
+/* Questions : deux colonnes indépendantes, ouvrir une question ne crée plus de trou en face */
+.faq-col{display:flex;flex-direction:column;min-width:0}
 </style>
 </head>
 <body>
@@ -1825,34 +1827,38 @@ fill="#16130f" stroke="none"><g class="ico"><path d="M3238 5754 c-4 -4 -74 -11 -
       <h2 id="faq-title">Les questions qu'on nous pose</h2>
     </div>
     <div class="faq-list" id="faqlist">
-      <details class="q">
+      <div class="faq-col">
+        <details class="q">
         <summary><span>C'est quoi, le merch Merch Mellow, et en quoi c'est différent ?</span><i aria-hidden="true"></i></summary>
         <div class="a"><p>Du merch conçu pour exprimer l'identité, la culture et le point de vue d'une entreprise. Merch Mellow est un partenaire de création, pas un catalogue ni un imprimeur : on part du brief, on développe la pièce et sa décoration, on source proprement, on gère la production et on s'assure que le résultat ressemble à quelque chose qu'on choisirait de porter.</p></div>
       </details>
-      <details class="q">
+        <details class="q">
         <summary><span>Combien coûte un projet type ?</span><i aria-hidden="true"></i></summary>
         <div class="a"><p>Un forfait de conception, puis les pièces au prix de gros, affichées sans marge cachée. Le montant dépend du nombre de pièces, des bases choisies et de la décoration. On envoie un chiffrage clair après le brief, avant toute maquette.</p></div>
       </details>
-      <details class="q">
+        <details class="q">
         <summary><span>Y a-t-il des quantités minimales ?</span><i aria-hidden="true"></i></summary>
         <div class="a"><p>Oui, elles varient selon les ateliers et la technique : en général à partir de 50 pièces pour le textile brodé, moins pour certains objets. On vous dit tout de suite ce qui est possible pour votre volume.</p></div>
       </details>
-      <details class="q">
+        <details class="q">
         <summary><span>Combien de temps prend un projet ?</span><i aria-hidden="true"></i></summary>
         <div class="a"><p>Comptez 6 à 10 semaines entre le brief et la livraison, échantillons compris. Un lancement ou une levée avec une date fixe se planifie en amont, et on s'engage sur le calendrier dès le départ.</p></div>
       </details>
-      <details class="q">
+      </div>
+      <div class="faq-col">
+        <details class="q">
         <summary><span>Peut-on voir des échantillons avant de s'engager ?</span><i aria-hidden="true"></i></summary>
         <div class="a"><p>Oui, et sans limite. Les échantillons sont inclus dans le forfait de conception : on itère sur la matière, la coupe et la broderie jusqu'à ce que la pièce soit juste, puis seulement on lance la production.</p></div>
       </details>
-      <details class="q">
+        <details class="q">
         <summary><span>Que peut-on personnaliser, et comment c'est décoré ?</span><i aria-hidden="true"></i></summary>
         <div class="a"><p>Bases, coloris, étiquettes, packaging, et bien sûr la décoration : broderie, sérigraphie, transfert, marquage sur objets. On choisit la technique qui tient dans le temps sur chaque support, pas celle qui coûte le moins cher.</p></div>
       </details>
-      <details class="q">
+        <details class="q">
         <summary><span>Merch Mellow peut-il gérer un programme merch continu plutôt qu'un projet unique ?</span><i aria-hidden="true"></i></summary>
         <div class="a"><p>Oui. Beaucoup de clients commencent par une collection et continuent avec nous : réassorts, pièces saisonnières, kits d'arrivée, boutique interne. On garde le système de marque cohérent d'une saison à l'autre.</p></div>
       </details>
+      </div>
     </div>
     <p class="faq-more">Une autre question&nbsp;? <a href="mailto:hello@merchmellow.fr">Écrivez-nous</a></p>
   </div>
@@ -2005,20 +2011,33 @@ fill="#16130f" stroke="none"><g class="ico"><path d="M3238 5754 c-4 -4 -74 -11 -
     const list=document.getElementById('faqlist'); if(!list) return;
     const qs=[...list.querySelectorAll('details.q')];
     const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // fin d'animation garantie : on écoute la transition, avec un filet de sécurité si elle ne part pas
+    function done(a,cb){
+      let fini=false;
+      const fin=()=>{ if(fini) return; fini=true; a.removeEventListener('transitionend',on); cb(); };
+      const on=e=>{ if(e.target===a && e.propertyName==='height') fin(); };
+      a.addEventListener('transitionend',on);
+      setTimeout(fin,450);
+    }
     function close(d){
       const a=d.querySelector('.a');
       if(reduce){d.removeAttribute('open');return;}
-      a.style.height=a.scrollHeight+'px'; d.classList.add('animating');
-      requestAnimationFrame(()=>{a.style.height='0px';});
-      a.addEventListener('transitionend',function h(){a.removeEventListener('transitionend',h);d.classList.remove('animating');d.removeAttribute('open');a.style.height='';},{once:true});
+      a.style.height=a.scrollHeight+'px';
+      void a.offsetHeight;               // le navigateur enregistre la hauteur de départ
+      d.classList.add('animating');
+      a.style.height='0px';
+      done(a,()=>{d.classList.remove('animating');d.removeAttribute('open');a.style.height='';});
     }
     function open(d){
       const a=d.querySelector('.a');
       d.setAttribute('open','');
       if(reduce) return;
-      a.style.height='0px'; d.classList.add('animating');
-      requestAnimationFrame(()=>{a.style.height=a.scrollHeight+'px';});
-      a.addEventListener('transitionend',function h(){a.removeEventListener('transitionend',h);d.classList.remove('animating');a.style.height='';},{once:true});
+      const h=a.scrollHeight;
+      a.style.height='0px';
+      void a.offsetHeight;
+      d.classList.add('animating');
+      a.style.height=h+'px';
+      done(a,()=>{d.classList.remove('animating');a.style.height='';});
     }
     qs.forEach(d=>{
       d.querySelector('summary').addEventListener('click',e=>{
