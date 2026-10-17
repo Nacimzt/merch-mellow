@@ -1288,6 +1288,30 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
   .procard .pr-lead{text-wrap:balance;max-width:28ch!important;margin-left:auto;margin-right:auto}
   .procard .pr-cta .btn{width:100%;justify-content:space-between}
 }
+/* =========================================================
+   Rendez-vous sur mobile : Eva en tête de la carte du calendrier,
+   points resserrés, marges régulières
+   ========================================================= */
+.cta-card-head{display:none}
+@media (max-width:820px){
+  .flow>section.cta{padding:56px 16px 16px!important}
+  .cta-in.cta-split{gap:32px!important}
+  .cta .cta-l{padding:0 4px}
+  .cta .cta-l .lead{margin-top:16px!important}
+  .cta-steps{margin-top:26px!important}
+  .cta-steps li{grid-template-columns:34px minmax(0,1fr)!important;padding:14px 0!important;font-size:15px!important;line-height:1.5!important}
+  .cta-steps b{font-size:16px!important;margin-bottom:2px!important}
+  .cta-l .cta-host{display:none!important}
+  .cta-card{padding:0 0 14px!important;border-radius:22px!important;overflow:hidden}
+  .cta-card-head{display:flex;align-items:center;gap:14px;padding:18px 18px 16px;border-bottom:1px solid rgba(246,241,233,.1)}
+  .cta-card-head .cta-av{width:46px;height:46px;box-shadow:0 0 0 2px var(--cr)}
+  .cta-card-head .cta-host-n{margin:0;font-size:16px;font-weight:500;color:var(--cr)!important}
+  .cta-card-head .cta-host-s{margin:2px 0 0;font-size:13.5px!important;color:var(--cr-3)!important}
+  .cta-card .cta-cal{min-height:0!important;padding:4px 2px 0}
+  .cta-fb{margin-top:6px!important;padding:0 16px;font-size:13.5px!important}
+  .cta-fb .fb-mail{display:none}
+}
+@media (max-width:380px){.cta-fb .fb-q{display:none}}
 </style>
 </head>
 <body>
@@ -1845,8 +1869,9 @@ fill="#16130f" stroke="none"><g class="ico"><path d="M3238 5754 c-4 -4 -74 -11 -
     </div>
     <div class="cta-r">
       <div class="cta-card">
+        <div class="cta-card-head" aria-hidden="true"><img class="cta-av" src="assets/eva-2-nb.webp" alt="" width="256" height="256" loading="lazy" decoding="async"><div><p class="cta-host-n">C'est Eva qui vous reçoit</p><p class="cta-host-s">Découverte, sans engagement.</p></div></div>
         <div class="cta-cal" id="my-cal-inline-rendez-vous-decouverte" aria-label="Réserver un rendez-vous découverte"></div>
-        <p class="cta-fb">Le calendrier ne s'affiche pas&nbsp;? <a href="https://cal.com/merchmellow/rendez-vous-decouverte" target="_blank" rel="noopener">Ouvrir la page de réservation</a> ou <a href="mailto:hello@merchmellow.fr">écrivez-nous</a>.</p>
+        <p class="cta-fb"><span class="fb-q">Le calendrier ne s'affiche pas&nbsp;? </span><a href="https://cal.com/merchmellow/rendez-vous-decouverte" target="_blank" rel="noopener">Ouvrir la page de réservation</a><span class="fb-mail"> ou <a href="mailto:hello@merchmellow.fr">écrivez-nous</a></span>.</p>
       </div>
     </div>
   </div>
